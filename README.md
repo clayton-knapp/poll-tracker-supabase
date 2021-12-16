@@ -70,6 +70,7 @@ DANI'S SETUP
     - check if it returns something, if true then redirect
     - re-direct with location.replace('./games');
 
+
 NEED THESE SUPABASE AUTH FUNCTIONS IN FETCH UTILS
 - checkAuth - returns to login page if not logged in (bad auth) (must run on polls page)
 - redirectIfLoggedIn - automatically redirects to poll page if logged in (must tun on login page)
