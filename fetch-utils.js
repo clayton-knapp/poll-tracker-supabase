@@ -6,6 +6,40 @@ const SUPABASE_URL = 'https://kxgrnsxvarsccdnmwtci.supabase.co';
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 
+// CREATE/INSERT POLL
+export async function createPoll(question, optionA, optionB, optionAVotes, optionBVotes) {
+    const response = await client
+        .from('polls')
+        .insert({
+            question: question,
+            optionA: optionA,
+            optionB: optionB,
+            optionAVotes: optionAVotes,
+            optionBVotes: optionBVotes 
+        });
+
+    return response.data;
+}
+
+// FETCH/GET POLLS
+export async function fetchPolls(){
+    const response = await client
+        .from('polls')
+        .select();
+    
+    return response.data;
+}
+
+// GET USER AUTH INFO
+export async function getUser(){
+    const response = await client
+        .auth
+        .session();
+        
+    return response; // response redirects b/c it evaluates as false, but response.user doesnt - why?
+}
+
+
 
 //SIGN UP
 export async function signUp(email, password) {
@@ -27,7 +61,7 @@ export async function logIn(email, password) {
             email,
             password, 
         });
-        
+
     return response.user;
 }
 

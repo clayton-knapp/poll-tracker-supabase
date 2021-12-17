@@ -1,4 +1,4 @@
-export function renderPoll(currentPollData) {
+export function renderPoll(pollObj) {
 
     // Creates HTML elements
     const pollContainerDiv = document.createElement('div');
@@ -6,7 +6,7 @@ export function renderPoll(currentPollData) {
     const bothOptionsDiv = document.createElement('div');
  
      //Sets elements text content to current state
-    questionEl.textContent = currentPollData.pollQuestion;
+    questionEl.textContent = pollObj.question;
  
      // Adds class lists to elements for styling
     pollContainerDiv.classList.add('poll-container');
@@ -15,8 +15,8 @@ export function renderPoll(currentPollData) {
  
      
      //CALL twice renderOption with optionsA and B to generate Divs
-    const optionAContainerDiv = renderOption(currentPollData.optionA, currentPollData.optionAVotes);
-    const optionBContainerDiv = renderOption(currentPollData.optionB, currentPollData.optionBVotes);
+    const optionAContainerDiv = renderOption(pollObj.optionA, pollObj.optionAVotes);
+    const optionBContainerDiv = renderOption(pollObj.optionB, pollObj.optionBVotes);
      
      //Appends OptionA and OptionB divs to bothOptions outer container div
     bothOptionsDiv.append(optionAContainerDiv, optionBContainerDiv);

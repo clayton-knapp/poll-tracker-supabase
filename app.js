@@ -24,14 +24,7 @@ signUpForm.addEventListener('submit', async(e) => {
     const email = signUpData.get('email');
     const password = signUpData.get('password');
 
-    //   - "log in the user"
-    //     - consult the supabase docs to find:
-    // ```js 
-    //   const response = await client.auth.signUp({
-    //   email: 'example@email.com',
-    //   password: 'example-password',
-    // })
-    // ```
+    //   - "sign up the user"
     const user = await signUp(email, password);
 
     // - redirect the user to the protected page with their data
@@ -57,13 +50,6 @@ logInForm.addEventListener('submit', async(e) => {
     const password = logInData.get('password');
 
     //   - "log in the user" - make a function using .signIn and pass username and password
-    //     - consult the supabase docs to find:
-    // ```js 
-    //   const response = await client.auth.signIn({
-    //   email: 'example@email.com',
-    //   password: 'example-password',
-    // })
-    // ```
     const user = await logIn(email, password);
 
     // - redirect the user to the protected page with their data

@@ -72,12 +72,12 @@ DANI'S SETUP
 
 
 NEED THESE SUPABASE AUTH FUNCTIONS IN FETCH UTILS
+- getUser - .auth.session (called by checkAuth and redirect of .auth.session included in them?)
 - checkAuth - returns to login page if not logged in (bad auth) (must run on polls page)
 - redirectIfLoggedIn - automatically redirects to poll page if logged in (must tun on login page)
 -signUp - duh auth.signUp
 - signIn - duh - auth.signIn
 - logout - auth.signOut
-- getUser - .auth.session (called by checkAuth and redirect of .auth.session included in them?)
 
 
 ## Polls Page
@@ -88,6 +88,7 @@ NEED THESE SUPABASE AUTH FUNCTIONS IN FETCH UTILS
 - Buttons to add and subtract votes
 - A div to inject current poll into
 - A div to inject past polls into
+- Button for logout
 
 ### Event
 - on load, 
