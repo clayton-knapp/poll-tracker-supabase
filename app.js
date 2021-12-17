@@ -1,11 +1,14 @@
 // import functions and grab DOM elements
 
-import { signUp, logIn } from './fetch-utils.js';
+import { signUp, logIn, getUser } from './fetch-utils.js';
 
 const logInForm = document.querySelector('#log-in-form');
 const signUpForm = document.querySelector('#sign-up-form');
 
 // let state
+
+//CHECKS IF USER IS LOGGED IN AND IF SO REDIRECTS TO POLLS PAGE
+redirectIfLoggedIn();
 
 // set event listeners 
   // get user input
@@ -60,9 +63,14 @@ logInForm.addEventListener('submit', async(e) => {
         window.location.href = './polls';
     } else {
         console.error(user);
+        alert('that user or password is wrong or doesn\'t exist');
     }
-
 });
 
-
-
+async function redirectIfLoggedIn(){
+    const user = await getUser();
+    if (user) {
+        window.location.href = './polls';
+    }
+    
+}

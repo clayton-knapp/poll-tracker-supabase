@@ -35,7 +35,8 @@ export async function getUser(){
     const response = await client
         .auth
         .session();
-        
+    
+    // console.log(response.user);
     return response; // response redirects b/c it evaluates as false, but response.user doesnt - why?
 }
 
