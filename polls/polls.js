@@ -1,6 +1,6 @@
 // import functions and grab DOM elements
 import { renderPoll } from '../render-utils.js';
-import { logOut, createPoll, fetchPolls, getUser } from '../fetch-utils.js';
+import { logOut, createPoll, fetchPolls, getUser, deletePoll } from '../fetch-utils.js';
 
 const pollForm = document.querySelector('#poll-form');
 const optionAAdd = document.querySelector('#option-a-add');
@@ -111,6 +111,14 @@ async function displayAllPolls() {
     for (let eachPoll of pastPolls) {
         //     - appends HTML Nodes to DisplayDiv
         const pollDiv = renderPoll(eachPoll);
+
+        //ADD EVENT LISTENER HERE TO MAKE THEM CLICKABLE AND DO SOMETHING
+        pollDiv.addEventListener('click', async()=>{
+            // console.log(eachPoll.id);
+            await deletePoll(eachPoll);
+            displayAllPolls();
+        });
+    
         pastPollsDiv.append(pollDiv);
     }
 }

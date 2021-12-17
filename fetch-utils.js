@@ -71,3 +71,11 @@ export async function logOut() {
     await client.auth.signOut();
     window.location.href = '../';
 }
+
+//DELETE POLL
+export async function deletePoll(eachPoll){
+    await client
+        .from('polls')
+        .delete()
+        .eq('id', eachPoll.id);
+}
