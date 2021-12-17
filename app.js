@@ -15,9 +15,7 @@ redirectIfLoggedIn();
   // use user input to update state 
   // update DOM to reflect the new state
 
-
-//   ### Sign up
-//   - Once the user hits submit on the form . . .
+// SIGN UP
 signUpForm.addEventListener('submit', async(e) => {
     // - prevent default behavior
     e.preventDefault();
@@ -31,19 +29,17 @@ signUpForm.addEventListener('submit', async(e) => {
     const user = await signUp(email, password);
 
     // - redirect the user to the protected page with their data
-    //     - use getUser function with client.auth.session();
-    //     - check if it returns something, if true then redirect
     if (user) {
-        //     - re-direct with location.replace('./games');
+        //     - re-direct
         window.location.href = './polls';
     } else {
         console.error(user);
+        alert('Sorry there was an error. Make sure your email is formatted name@domain.com and your password is a least 6 characters');
     }
 });
 
 
-// ### Login / sign in
-//   - Once the user hits submit on the form . . .
+// LOG IN
 logInForm.addEventListener('submit', async(e) => {
     //   - prevent default behavior
     e.preventDefault();
@@ -56,14 +52,12 @@ logInForm.addEventListener('submit', async(e) => {
     const user = await logIn(email, password);
 
     // - redirect the user to the protected page with their data
-    //     - use getUser function with client.auth.session();
-    //     - check if it returns something, if true then redirect
     if (user) {
-        //     - re-direct with location.replace('./games');
+        //     - re-direct
         window.location.href = './polls';
     } else {
         console.error(user);
-        alert('that user or password is wrong or doesn\'t exist');
+        alert('that email or password is wrong or doesn\'t exist');
     }
 });
 

@@ -22,6 +22,7 @@ let optionBVotes = 0;
 
 //calls displayCurrent Poll to show empty current poll div on load
 displayCurrentPoll();
+// displayAllPolls();
 
 // check if user is not logged in and if so re-direct
 checkAuth();
