@@ -30,10 +30,7 @@ checkAuth();
 //EVENT LISTENERS
 
 //ON LOAD
-window.addEventListener('load', async()=> {
-//     - calls displayPolls function which calls fetchPolls and displays them
-    displayAllPolls();
-});
+window.addEventListener('load', displayAllPolls);
 
 // SUBMIT FORM
 pollForm.addEventListener('submit', (e)=> {

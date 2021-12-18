@@ -36,7 +36,7 @@ export async function getUser(){
         .auth
         .session();
     
-    // console.log(response.user);
+    console.log(response);
     return response; // response redirects b/c it evaluates as false, but response.user doesnt - why?
 }
 
